@@ -1,0 +1,334 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@theme {
+  /* TERRASCOPE Color Palette */
+  --color-terrain-50: #F3F0E8;
+  --color-terrain-100: #E8E5DB;
+  --color-terrain-200: #DDD9CD;
+  --color-terrain-300: #C5C1B4;
+  --color-terrain-400: #A9A597;
+  --color-terrain-500: #8D897C;
+  --color-terrain-600: #77796F;
+  --color-terrain-700: #5A5C52;
+  --color-terrain-800: #3D3F37;
+  --color-terrain-900: #202B27;
+  --color-terrain-950: #182B26;
+
+  --color-building: #D66B45;
+  --color-building-light: #E8976F;
+  --color-building-dark: #B85A3A;
+  --color-road: #D8AC4B;
+  --color-road-light: #E5C576;
+  --color-road-dark: #B89340;
+  --color-water: #4B9EAA;
+  --color-water-light: #72B8C2;
+  --color-water-dark: #3D8490;
+  --color-vegetation: #82966B;
+  --color-vegetation-light: #A0B08A;
+  --color-vegetation-dark: #6B7D57;
+  --color-boundary: #E9E4D8;
+  --color-boundary-dark: #C5BFB0;
+
+  /* Semantic */
+  --color-surface: #F3F0E8;
+  --color-surface-alt: #E8E5DB;
+  --color-nav: #182B26;
+  --color-nav-hover: #1F3832;
+  --color-text: #202B27;
+  --color-text-muted: #77796F;
+  --color-text-inverse: #F3F0E8;
+  --color-accent: #D66B45;
+  --color-success: #5A8A5C;
+  --color-error: #C54B4B;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ====== BASE ====== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ====== TYPOGRAPHY ====== */
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.label-technical {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.label-section {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.coordinate {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* ====== CARD SYSTEM ====== */
+
+.card {
+  background: white;
+  border: 1px solid var(--color-boundary);
+  transition: border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--color-boundary-dark);
+}
+
+.card-inset {
+  background: var(--color-surface);
+  border: 1px solid var(--color-boundary);
+}
+
+/* ====== STAT BADGE ====== */
+
+.stat-value {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.stat-label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ====== SIDEBAR ====== */
+
+.sidebar {
+  background: var(--color-nav);
+  color: var(--color-text-inverse);
+  width: 15rem;
+  min-height: 100vh;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: rgba(243, 240, 232, 0.65);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.sidebar-link:hover {
+  color: var(--color-text-inverse);
+  background: rgba(255, 255, 255, 0.06);
+  border-left-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-link.active {
+  color: var(--color-text-inverse);
+  background: rgba(255, 255, 255, 0.08);
+  border-left-color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* ====== BUTTONS ====== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--color-accent);
+  color: white;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-building-dark);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid var(--color-boundary-dark);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--color-surface-alt);
+  border-color: var(--color-terrain-400);
+}
+
+/* ====== UPLOAD ZONE ====== */
+
+.upload-zone {
+  border: 2px dashed var(--color-boundary-dark);
+  background: var(--color-surface);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.upload-zone:hover,
+.upload-zone.drag-over {
+  border-color: var(--color-accent);
+  background: rgba(214, 107, 69, 0.04);
+}
+
+/* ====== PROGRESS BAR ====== */
+
+.progress-bar {
+  height: 3px;
+  background: var(--color-boundary);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+/* ====== FEATURE LEGEND ====== */
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 1px;
+  display: inline-block;
+}
+
+/* ====== TABLE ====== */
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.data-table thead {
+  border-bottom: 1px solid var(--color-boundary);
+}
+
+.data-table th {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-align: left;
+  padding: 0.625rem 0.75rem;
+}
+
+.data-table td {
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--color-boundary);
+  color: var(--color-text);
+}
+
+.data-table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.015);
+}
+
+/* ====== CONFIDENCE BADGE ====== */
+
+.confidence-high { color: var(--color-success); }
+.confidence-mid { color: var(--color-road); }
+.confidence-low { color: var(--color-error); }
+
+/* ====== SCROLLBAR ====== */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-terrain-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-terrain-400);
+}
+
+/* ====== ANIMATIONS ====== */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* ====== LEAFLET OVERRIDES ====== */
+
+.leaflet-container {
+  background: var(--color-surface-alt) !important;
+  font-family: var(--font-sans) !important;
+}
+
+.leaflet-control-zoom a {
+  background: var(--color-nav) !important;
+  color: var(--color-text-inverse) !important;
+  border: none !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 2px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+}
